@@ -1,6 +1,11 @@
+package src.model;
+
 import java.time.Instant;
+import java.util.Objects;
 
 public class Note {
+
+    private Folder parentFolder;
 
     private final String name;
 
@@ -11,9 +16,10 @@ public class Note {
     private final Instant creationDate;
     Instant updateDate;
 
-    public Note(String name, String text) {
+    public Note(String name, String text, Folder parentFolder) {
         this.name = name;
         this.text = text;
+        this.parentFolder=parentFolder;
         author=null;
         creationDate=Instant.now();
     }
@@ -30,6 +36,14 @@ public class Note {
         this.text = text;
     }
 
+    public Folder getParentFolder() {
+        return parentFolder;
+    }
+
+    public void setParentFolder(Folder parentFolder) {
+        this.parentFolder = parentFolder;
+    }
+
     public String getAuthor() {
         return author;
     }
@@ -44,5 +58,18 @@ public class Note {
 
     public void setUpdateDate(Instant updateDate) {
         this.updateDate = updateDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Note note = (Note) o;
+        return Objects.equals(name, note.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

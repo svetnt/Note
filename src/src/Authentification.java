@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Scanner;
 
 public class Authentification {
@@ -5,7 +7,7 @@ public class Authentification {
     private final static String LOGIN = "svetnt";
     private final static String PASSWORD = "123";
 
-    public static int autentificate() {
+    public static void autentificate() {
 
         Scanner sc = new Scanner(System.in);
 
@@ -25,6 +27,8 @@ public class Authentification {
 
             }
         }
-        return isLoginSuccess? 0:1;
+        if (!isLoginSuccess){
+            throw new RuntimeException("Login failed");
+        }
     }
 }
