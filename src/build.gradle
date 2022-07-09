@@ -1,0 +1,13 @@
+plugins{
+    id 'application'
+    id 'java'
+    id 'idea'
+}
+
+repositories{
+    mavenCentral()
+}
+
+application{
+    mainClass='mediaNotes.Main'
+}
