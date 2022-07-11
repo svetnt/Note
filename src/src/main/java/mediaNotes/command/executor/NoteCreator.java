@@ -1,6 +1,7 @@
 package mediaNotes.command.executor;
 
 import mediaNotes.command.CommandType;
+import mediaNotes.context.UserContext;
 import mediaNotes.model.Note;
 
 public class NoteCreator extends AbstractCommandExecutor {
@@ -40,7 +41,9 @@ public class NoteCreator extends AbstractCommandExecutor {
 
         var noteText = noteTextSb.toString();
 
-        var newNote = new Note(noteName, noteText, folder.get());
+        var creatorEmail= UserContext.getUserLogin();
+
+        var newNote = new Note(noteName, noteText, folder.get(), creatorEmail);
 
         noteRepository.save(newNote);
 

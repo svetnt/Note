@@ -20,16 +20,16 @@ public class Note {
 
     private String text;
 
-    private final String author;
+    private final String authorEmail;
 
     private final Instant creationDate;
     private Instant updateDate;
 
-    public Note(String name, String text, Folder parentFolder) {
+    public Note(String name, String text, Folder parentFolder, String authorEmail) {
         this.name = name;
         this.text = text;
         this.parentFolder=parentFolder;
-        author=null;
+        this.authorEmail=authorEmail;
         creationDate=Instant.now();
     }
 
