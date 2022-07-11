@@ -21,8 +21,6 @@ public class FolderCreator extends AbstractCommandExecutor{
 
         var folderName = wordsArray[2];
 
-        /////////
-
         var noteParrentFolder=wordsArray[3];
         var folder=findFolder(noteParrentFolder);
 
