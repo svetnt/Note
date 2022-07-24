@@ -1,8 +1,9 @@
 package mediaNotes.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Folder {
+public class Folder implements Serializable {
 
     private String name;
     private Folder parentFolder;

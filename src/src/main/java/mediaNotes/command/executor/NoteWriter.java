@@ -35,7 +35,7 @@ public class NoteWriter extends AbstractCommandExecutor {
         if (isNeedFilter) {
             list = list
                     .stream()
-                    .filter(p -> p.equals(userEmail))
+                    .filter(p -> p.getAuthorEmail().equals(userEmail))
                     .collect(Collectors.toList());
             ;
         }
@@ -49,9 +49,9 @@ public class NoteWriter extends AbstractCommandExecutor {
 
         for (Note el : list) {
             var patch = findFolderPath(el.getName());
-            System.out.printf("Title: \"%s\". Text: \"%s\".%n Patch: \"%s\".\n", el.getName(), el.getText(), patch);
+            System.out.printf("Title: \"%s\". Text: \"%s\".%n Patch: \"%s\". Author: %s. %n", el.getName(),
+                    el.getText(), patch, el.getAuthorEmail());
         }
-
         return 1;
     }
 }

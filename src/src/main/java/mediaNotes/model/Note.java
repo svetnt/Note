@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ import java.util.Objects;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
-public class Note {
+public class Note implements Serializable {
 
     private Folder parentFolder;
 
